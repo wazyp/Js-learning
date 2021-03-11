@@ -1,18 +1,14 @@
-const colorInput = document.querySelector('.color-selector');
-const widthInput = document.querySelector('.width-slider');
-const heightInput = document.querySelector('.height-slider');
-const colorBlock = document.querySelector('.color-block');
-const blockControlsWrapper = document.querySelector('.block-controls-wrapper');
-
 const TEST_DATA = {
   ARRAY_OF_INTS: [1, 5, 6, 7]
 }
 
 var student = {
-  NAME : "David Rayy",
-  SCLAS : "VI",
+  NAME : 'David Rayy',
+  SCLAS : 'VI',
   ROLLNO : 12
 };
+
+var stringToFormat = ' asd asd jjj bbb jjj '; // Global on purpose
 
 /**
  * TASK 1
@@ -41,8 +37,8 @@ function getArraySum(intArr) {
  *
  */
 function colorMixer() {
-  myColor = ["Red", "Green", "White", "Black"];
-  let output = myColor.join(',');
+  myColorsArray = ['Red', 'Green', 'White', 'Black'];
+  const output = myColor.join(',');
 }
 
 /**
@@ -50,6 +46,7 @@ function colorMixer() {
  *
  */
 function listProperties() {
+  let returnString = '';
   for (let key in student) {
     if (student.hasOwnProperty(key)) {
       returnString += key + ',';
@@ -57,7 +54,7 @@ function listProperties() {
   }
 }
 
-var stringToFormat = ' asd asd jjj bbb jjj '; // Global on purpous
+
 /**
  * TASK 5
  *
@@ -87,8 +84,7 @@ function removeFirst() {
  * '<p><strong><em>PHP Exercises</em></strong></p>' -- test string
  */
 function strip_html_tags(string) {
-
-  let regExHTML = /<[^>]*>/g;
+  const regExHTML = /<[^>]*>/g;
   return string.replace(regExHTML, '');
 }
 
@@ -96,16 +92,16 @@ function strip_html_tags(string) {
  * TASK 9
  * 'Hello world, welcome to the universe.' -- test string
  */
-function removeFirst(inputString, end) {
-  inputString.endsWith(end);
+function checkIfEnds(inputString, end) {
+  return inputString.endsWith(end);
 }
 
 /**
  * TASK 10
  *
  */
-function removeFirst(inputObject) {
-  Object.keys(inputObject).length;
+function objectLenght(inputObject) {
+  return Object.keys(inputObject).length;
 }
 
 /**
@@ -113,21 +109,24 @@ function removeFirst(inputObject) {
  *
  */
 function first(array, n) {
+  if(array == NULL){
+    return;
+  }
   if (n <= 0) {
     return array[0];
+  }else{
+    return array.splice(n, array.length-1);
   }
-  array.splice(n, array.length-1);
-  return array;
 }
 
 /**
  * TASK 12
  *
  */
-function removeFirst(inputObject) {
-  var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
-
-
+function removeFirst() {
+  const arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+  let itterObject = {};
+  let result = '';
 
   arr1.forEach(element => {
     if (itterObject.hasOwnProperty(element)) {
@@ -145,6 +144,7 @@ function removeFirst(inputObject) {
       result = key + ': ' + currentValue;
     }
   });;
+  return result;
 }
 
 /**
@@ -152,22 +152,16 @@ function removeFirst(inputObject) {
  *
  */
 function fizzBuzz() {
-  for (let i = 1; i <= 100; i++) {
+  let outputString = '';
 
-    let tmp = 0;
-    if ((i % 3) == 0) {
-      outputString += 'Fizz';
-      tmp = 1;
-    }
-    if ((i % 5) == 0) {
-      outputString += 'Buzz';
-      tmp = 1;
-    }
-    if (tmp == 0) {
-      outputString += i;
-    }
+  for (let i = 1; i <= 100; i++) {
+    if((i % 15) == 0) outputString += 'FizzBuzz';
+    else if((i % 3) == 0) outputString += 'Fizz';
+    else if((i % 5) == 0) outputString += 'Buzz';
+    else outputString += i;
     outputString += ' ';
   }
+  return outputString;
 }
 
 /**
@@ -176,12 +170,8 @@ function fizzBuzz() {
  */
 function isOdd() {
   for (let i = 0; i <= 15; i++) {
-
-    let outputString1 = '';
-
-    (i%2) ? (outputString1 += i + ' is odd') : (outputString1 += i + ' is even');
-
-    console.log(outputString1);
+    if(i % 2) console.log(i + ' is odd');
+    else console.log(i + ' is even');
   }
 }
 
@@ -189,10 +179,10 @@ function isOdd() {
  * TASK 15
  *
  */
-function happy_number(number, count = 0) {
-
+function happyNumber(number, count = 0) {
   if(number < 0){return false;}
   let result = false;
+
   if(count < 10){
     let numbArray = number.toString().split('');
     let sum = 0;
@@ -215,60 +205,12 @@ function happy_number(number, count = 0) {
  * TASK 16
  *
  */
-function return_angle(angle1, angle2) {
+function returnAngle(angle1, angle2) {
   let sum = angle1 + angle2;
   if(sum < 180){
-    if((180 - sum) > 90 && (180 - sum) < 180){
-      return 'obtuse';
-    }
-    if((180 - sum) < 90){
-      return 'acute';
-    }
-    if((180 - sum) == 90){
-      return 'right';
-    }
+    if((180 - sum) > 90 && (180 - sum) < 180) return 'obtuse';
+    else if((180 - sum) < 90) return 'acute';
+    else return 'right';
   }
   return -1;
 }
-
-/**     Not from the tasks               */
-
-function updateColor(e) {
-  colorBlock.style.backgroundColor = e.target.value;
-}
-
-function updateWidth(e) {
-  colorBlock.style.width = e.target.value + 'px';
-}
-
-function updateHeight(e) {
-  colorBlock.style.height = e.target.value + 'px';
-  blockControlsWrapper.style.marginTop = 200 - e.target.value + 'px';
-}
-
-
-colorInput.addEventListener('input', updateColor);
-widthInput.addEventListener('input', updateWidth);
-heightInput.addEventListener('input', updateHeight);
-
-window.addEventListener('load', function () {
-
-  getArraySum(TEST_DATA.ARRAY_OF_INTS);
-
-  let counter = 0;
-  let numberToTest = 0;
-  while (counter < 5) {
-    if(numberToTest >= 20){
-      break;
-    }
-    if(happy_number(numberToTest) == true){
-      console.log(numberToTest + ' - ' + true);
-      counter++;
-    }
-    numberToTest++;
-  }
-
-  colorBlock.style.backgroundColor = colorInput.value;
-  colorBlock.style.width = 200 + 'px';
-  colorBlock.style.height = 200 + 'px';
-});

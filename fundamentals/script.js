@@ -18,7 +18,6 @@ function getBiggerNumber(int1, int2) {
   if ((int1 >= 40 && int1 <= 60) && (int2 >= 40 && int2 <= 60)) {
     return int1 > int2 ? int1 : int2;
   }
-
   return 0;
 }
 
@@ -37,8 +36,10 @@ function getArraySum(intArr) {
  *
  */
 function colorMixer() {
-  myColorsArray = ['Red', 'Green', 'White', 'Black'];
-  const output = myColor.join(',');
+  const myColorsArray = ['Red', 'Green', 'White', 'Black'];
+  const output = myColorsArray.join(',');
+
+  return output;
 }
 
 /**
@@ -47,11 +48,14 @@ function colorMixer() {
  */
 function listProperties() {
   let returnString = '';
+
   for (let key in student) {
     if (student.hasOwnProperty(key)) {
       returnString += key + ',';
     }
   }
+
+  return returnString;
 }
 
 
@@ -60,7 +64,7 @@ function listProperties() {
  *
  */
 function stripLeadTrail() {
-  stringToFormat.trim();
+  return stringToFormat.trim();
 }
 
 /**
@@ -68,15 +72,15 @@ function stripLeadTrail() {
  *
  */
 function removeFirst() {
-  stringToFormat.replace('jjj','');
+  return stringToFormat.replace('jjj','');
 }
 
 /**
  * TASK 7
  *
  */
-function removeFirst() {
-  stringToFormat.search('jjj');
+function findFirst() {
+  return stringToFormat.search('jjj');
 }
 
 /**
@@ -85,6 +89,7 @@ function removeFirst() {
  */
 function strip_html_tags(string) {
   const regExHTML = /<[^>]*>/g;
+
   return string.replace(regExHTML, '');
 }
 
@@ -108,13 +113,14 @@ function objectLenght(inputObject) {
  * TASK 11
  *
  */
-function first(array, n) {
-  if(array == NULL){
+function firstnElements(array, n) {
+  if (array == NULL) {
     return;
   }
+
   if (n <= 0) {
     return array[0];
-  }else{
+  } else {
     return array.splice(n, array.length-1);
   }
 }
@@ -123,10 +129,11 @@ function first(array, n) {
  * TASK 12
  *
  */
-function removeFirst() {
+function findMostCommon() {
   const arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
   let itterObject = {};
   let result = '';
+  let maxCount = 0;
 
   arr1.forEach(element => {
     if (itterObject.hasOwnProperty(element)) {
@@ -143,7 +150,8 @@ function removeFirst() {
       maxCount = currentValue;
       result = key + ': ' + currentValue;
     }
-  });;
+  });
+
   return result;
 }
 
@@ -152,16 +160,21 @@ function removeFirst() {
  *
  */
 function fizzBuzz() {
-  let outputString = '';
-
   for (let i = 1; i <= 100; i++) {
-    if((i % 15) == 0) outputString += 'FizzBuzz';
-    else if((i % 3) == 0) outputString += 'Fizz';
-    else if((i % 5) == 0) outputString += 'Buzz';
-    else outputString += i;
-    outputString += ' ';
+    let outputString = '';
+
+    if ((i % 15) == 0) {
+      outputString += 'FizzBuzz';
+    } else if ((i % 3) == 0) {
+      outputString += 'Fizz';
+    } else if ((i % 5) == 0) {
+      outputString += 'Buzz';
+    } else {
+      outputString += i;
+    }
+
+    console.log(outputString);
   }
-  return outputString;
 }
 
 /**
@@ -170,8 +183,11 @@ function fizzBuzz() {
  */
 function isOdd() {
   for (let i = 0; i <= 15; i++) {
-    if(i % 2) console.log(i + ' is odd');
-    else console.log(i + ' is even');
+    if (i % 2) {
+      console.log(i + ' is odd');
+    } else {
+      console.log(i + ' is even');
+    }
   }
 }
 
@@ -180,24 +196,28 @@ function isOdd() {
  *
  */
 function happyNumber(number, count = 0) {
-  if(number < 0){return false;}
   let result = false;
 
-  if(count < 10){
+  if (number < 0) {
+    return false;
+  }
+
+  if (count < 10) {
     let numbArray = number.toString().split('');
     let sum = 0;
 
-    for(i=0; i<numbArray.length; i++) {
+    for (i=0; i<numbArray.length; i++) {
         sum+= numbArray[i] * numbArray[i];
     }
 
-    if(sum == 1){
+    if (sum == 1) {
       return result = true;
-    }else{
+    } else {
       count++;
       return happy_number(sum, count);
     }
   }
+
   return result;
 }
 
@@ -206,11 +226,17 @@ function happyNumber(number, count = 0) {
  *
  */
 function returnAngle(angle1, angle2) {
-  let sum = angle1 + angle2;
-  if(sum < 180){
-    if((180 - sum) > 90 && (180 - sum) < 180) return 'obtuse';
-    else if((180 - sum) < 90) return 'acute';
-    else return 'right';
+  const sum = angle1 + angle2;
+
+  if (sum < 180) {
+    if ((180 - sum) > 90 && (180 - sum) < 180) {
+      return 'obtuse';
+    } else if ((180 - sum) < 90) {
+      return 'acute';
+    } else {
+      return 'right';
+    }
   }
+
   return -1;
 }

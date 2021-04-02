@@ -1,10 +1,11 @@
 function Item(id, name) {
     this.id = id;
     this.name = name;
+    this.itemInfo = 'item ' + this.id + ' ' + this.name;
 }
 
 Item.prototype.getItemInfo = function () {
-    return 'item ' + this.id + ' ' + this.name;
+    return this.itemInfo;
 }
 
 function getRandomInt(min, max) {
@@ -15,6 +16,7 @@ function getRandomInt(min, max) {
 
 function Weapon(attack, damageType, twoHanded, id, name) {
     Item.apply(this, id, name);
+    this.itemInfo = 'item ' + this.id + ' ' + this.name + ' has ' + this.attack + ' of ' + this.damageType + ' damage';
     if (attack < 1 || attack > 30000) {
         throw 'Attack is not valid!';
     }
@@ -39,18 +41,5 @@ function Weapon(attack, damageType, twoHanded, id, name) {
 
 console.log(pushka.getItemInfo());
 console.log(shmushka.getItemInfo());
-
-// class Item {
-//     constructor() {
-//         this.id = 0;
-//         this.name = '';
-//     }
-
-//     getItemInfo() {
-//         return 'item ' + this.id + this.name;
-//     }
-
-
-// }
 
 let item1 = new Item();

@@ -1,8 +1,8 @@
 const names = ['pesho', 'gosho', 'asan', 'sirene', 'pribivane'];
 
-function isAllString(arr) {
-    for(var i=0; i < arr.length; i++){
-        if(typeof arr[i] != "string") {
+function isAllString(words) {
+    for(var i=0; i < words.length; i++){
+        if(typeof words[i] != "string") {
             return false;
         }
     }
@@ -12,14 +12,9 @@ function isAllString(arr) {
 function capitalize(words) {
     return new Promise((resolve, reject) =>
     {
-        const check = isAllString(words);
-        let uppercased = [''];
-        if (check) {
-            uppercased = words.map(word => word.toUpperCase());
-        }
-
-        if (check) {
-            resolve(uppercased);
+        if (isAllString(words)) {
+            words = words.map(word => word.toUpperCase());
+            resolve(words);
         } else {
             reject(Error("Promisse 1 failed"));
         }
@@ -27,30 +22,11 @@ function capitalize(words) {
 }
 
 function sortWords(words) {
-    return new Promise((resolve, reject) =>
-    {
-        const check = isAllString(words);
-
-        if (check) {
-            words.sort();
-        }
-        if (check) {
-            resolve(words);
-        } else {
-            reject(Error("Promisse 2 failed"));
-        }
-    });
+    return new Promise((resolve) => resolve(words.sort()));
 }
 
 capitalize(names)
-.then(result => {
-    return sortWords(result);
-})
-.then(finalResult => {
-    console.log('Got the final result: ' + finalResult);
-})
-.catch(error => {
-    console.log('Exited with error ',error);
-});
-
-
+    .then(result => sortWords(result))
+    .then(finalResult => console.log('Got the final result: ' + finalResult))
+    .catch(error => console.log('Exited with error ',error)
+    );

@@ -4,6 +4,7 @@ $('.box-container').children().click(function(e) {
 
 $('#checkbox').change(function(){
     let $curcle = $('.circle');
+
     if ($(this).is(':checked')) {
         $curcle.animate({left: $('.circle-container').width() - $curcle.width()},2000);
     } else {

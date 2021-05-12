@@ -1,16 +1,22 @@
 
 function generateSudokuGrid2(data) {
     let colms = [];
+    let count = 0;
     for (let i = 0; i < 9; i++) {
         for (let y = 0; y < 9; y++) {
 
             let $tmpElement = $('<input class="input-box" type="text"></input>');
-
             if (data[i][y] != 0) {
                 $tmpElement.val(data[i][y]).prop( "disabled", true );
+            } else {
+                count++;
             }
             colms.push($tmpElement);
         }
+    }
+    if (count >= (9*9)) {
+        throwMessage('Error wrong difficulty', 3);
+        return;
     }
 
     return colms;
@@ -23,6 +29,8 @@ function throwMessage(messageString, type) {
     } else if (type == 2) {
         $('.error-message').html('<div class="alert alert-warning" role="alert">' + messageString + '</div>');
     } else {
+        $('.game-container').html('');
+        $('.btn-submit-sudoku').remove();
         $('.error-message').html('<div class="alert alert-danger" role="alert">' + messageString + '</div>');
     }
 }
@@ -56,8 +64,6 @@ function checkSolved(data) {
 
 $('.btn-submit').click(function() {
     if (!$('#difficulty').children("option:selected").val()) {
-        $('.game-container').html('');
-        $('.btn-submit-sudoku').remove();
         throwMessage('Error wrong difficulty', 3);
         return;
     }
@@ -70,7 +76,11 @@ $('.btn-submit').click(function() {
     .then(response => response.json())
     .then(response => {
         $('.error-message').html('');
-        $('.game-container').html(generateSudokuGrid2(response.board));
+        let tmpReturn = generateSudokuGrid2(response.board);
+        if (!tmpReturn) {
+            return;
+        }
+        $('.game-container').html(tmpReturn);
         $('<button type="button" class="btn btn-primary btn-submit-sudoku">Submit sudoku</button>').insertAfter($('.game-container'));
 
         $('.input-box').keyup(function(e)

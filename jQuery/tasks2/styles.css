@@ -25,7 +25,26 @@
 	margin-right: 12px;
 }
 
-.results .exchange-rates-container,
-.results .error-message {
-	display: none;
+.game-container {
+	width: 500px;
+    height: 500px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+.btn-submit-sudoku {
+	margin: 10px;
+}
+
+.input-box {
+	margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    font-size: 3em;
+    text-align: center;
+    width: 11.11%;
+    height: 11.201%;
+    border: 1px solid #444;
 }

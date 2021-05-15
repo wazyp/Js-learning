@@ -28,3 +28,55 @@ button2.addEventListener('click', function() {
         console.log('password invalid');
     }
 });
+
+// Task 3
+
+const button3 = document.querySelector('.btn-submit-3');
+const input3 = document.querySelector('.input-3');
+const regexNumb = /^(([+]359)|[0])([\d]{6,9})/;
+
+button3.addEventListener('click', function() {
+    if (regexNumb.test(input3.value)) {
+        console.log('number valid');
+    } else {
+        console.log('number invalid');
+    }
+});
+
+// Task 4
+
+const button4 = document.querySelector('.btn-submit-4');
+const input4 = document.querySelector('.input-4');
+const regexEmail = /^[\w\d_\.+]+@(.+\.)+.{2,}$/;
+
+button4.addEventListener('click', function() {
+    if (regexEmail.test(input4.value)) {
+        console.log('Email valid');
+    } else {
+        console.log('Email invalid');
+    }
+});
+
+// Task 5
+
+const button5 = document.querySelector('.btn-submit-5');
+const input5 = document.querySelector('.input-5');
+const regexName = /[\S]+/g;
+
+button5.addEventListener('click', function() {
+    var matches = [];
+    var match = regexName.exec(input5.value);
+
+    while (match != null) {
+        matches.push(match[0]);
+        match = regexName.exec(input5.value);
+    }
+
+    if (matches.length < 2) {
+        console.log('Name not correct');
+        return;
+    } else {
+        console.log(matches[matches.length-1] + ', ' + matches[0]);
+    }
+
+});

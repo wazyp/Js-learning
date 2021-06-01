@@ -1,0 +1,50 @@
+/* Header */
+
+#header {
+	background-color: rgb(108, 168, 72);
+	height: 60px;
+	margin-bottom: 24px;
+	display: flex;
+	align-items: center;
+	padding: 12px;
+}
+
+#header img {
+	margin-right: 12px;
+}
+
+#header h1 {
+	font-size: 1.5rem;
+	color: #f1f1f1;
+}
+
+/* Main content */
+
+.currencies .form-check {
+	display: inline-block;
+	margin-right: 12px;
+}
+
+.game-container {
+	width: 500px;
+    height: 500px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    display: block;
+}
+
+.btn-submit-sudoku {
+	margin: 10px;
+}
+
+.input-box {
+	margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    font-size: 3em;
+    text-align: center;
+    width: 11.11%;
+    height: 11.201%;
+    border: 1px solid #444;
+}

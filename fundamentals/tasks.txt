@@ -1,0 +1,31 @@
+1 - Write a JavaScript program to find the larger number from the two given positive integers, the two numbers are in the range [40;60] inclusive.
+
+2 - Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.
+
+3 - Write a simple JavaScript program to join all elements of the following array into a string.
+
+4 - Write a JavaScript program to list the properties of a JavaScript object.
+
+5 - Write a JavaScript function to strip leading and trailing spaces from a string.
+
+6 - Write a JavaScript function to remove the first occurrence of a given 'search string' from a string.
+
+7 - Write a JavaScript function to find a word within a string.
+
+8 - Write a JavaScript function to remove HTML/XML tags from string.
+
+9 - Write a JavaScript function to test whether a string ends with a specified string.
+
+10 -- Write a JavaScript program to get the length of an JavaScript object.
+
+11 -- Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array.
+
+12 -- Write a JavaScript program to find the most frequent item of an array.
+
+13 -- Write a JavaScript program which iterates the integers from 1 to 100. But for divisible numbers of three print "Fizz" instead of the number and for the divisible numbers of five print "Buzz". For divisible numbers of both three and five print "FizzBuzz".
+
+14 -- Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even, and display a message to the screen.
+
+15 -- According to Wikipedia a happy number is defined by the following process: "Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)". Write a JavaScript program to find and print the first 5 happy numbers.
+
+16 -- You’re given 2 out of 3 angles in a triangle (in degrees). Write a function that classifies the missing angle as either “acute”, “right” or “obtuse” based on its degrees.

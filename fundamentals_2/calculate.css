@@ -1,0 +1,16 @@
+.content-box {
+    width: fit-content;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 5px 10px;
+}
+
+.content-box h5 {
+    font-weight: normal;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.content-box input {
+    margin-bottom: 2px;
+}
